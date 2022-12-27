@@ -86,3 +86,70 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+
+
+
+let totalMonths = {};
+totalMonths=finances.length;
+
+let totalProfit = 0;
+for (let i=0; i< finances.length; i++) {
+    totalProfit += finances[i][1];
+};
+
+const changes = [];
+for (let i = 1; i < finances.length; i++) {
+    changes.push( finances[i][1] - finances[i-1][1]);
+};
+
+const combinedA = finances.concat(changes);
+console.log(combinedA);
+
+
+
+//let totalChanges = 0;
+//for (let i=1; i< changes.length; i++){
+//    totalChanges += changes[0];
+//};
+
+function sum_reducer(accumulator, currentValue){
+    return accumulator + currentValue;
+}
+let sumChanges = changes.reduce(sum_reducer);
+//console.log("Sum of Changes: "+ sumChanges);
+
+let averageChange = 0;
+averageChange = sumChanges/(totalMonths-1);
+
+roundedAverageChange = averageChange.toFixed(2);
+
+//for (let i = 0; i < changes.length; i++) {
+//    for (let j = 0; j < changes[i].length; j++){
+//        console.log("look " +changes[i][j]);
+//    }
+//}
+console.log("Financial Analysis",'\n', "----------------------------");
+console.log("Total Months: "+totalMonths);
+console.log("Total Profit: $"+totalProfit);
+console.log("Average Change: $",roundedAverageChange);
+console.log("Greatest Increase in Profits: "+"$"+ Math.max(...changes));
+console.log("Greatest Decrease in Profits: "+ "$"+ Math.min(...changes));
+//console.log("Average Change: $"+totalProfit);
+//console.log("Example Change: ", changes[0]);
+//console.log(changes);
+//console.log("Total Changes: $",sumChanges);
+//console.log(finances[0][1] - finances[1][1]);
+
+function sum_reducer(accumulator, currentValue){
+    return accumulator + currentValue;
+}
+let sum = changes.reduce(sum_reducer);
+//function addColumn (array, column) {
+    //for (let i = 0; i < array.length; i++) {
+     //   if (column[i]) {
+    //        array[i].push(column[i]);
+   //     }
+  //  }
+ //   return array;
+//}
+
