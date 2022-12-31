@@ -100,9 +100,27 @@ var finances = [
     );
 
 console.table(finances);
-console.log("Greatest Increase in Profits: "+"$"+ Math.max(...finances[1][2]));
+console.log(finances[2]);
+ console.log("highest: " + Math.max(finances[2]));
+
+//console.log("Greatest Increase in Profits: "+"$"+ Math.max(...finances[1][2]));
 
 //const highest = Math.max(finances[10][2]);
 //console.log("highest :"+ highest);
 //const index = finances.indexOf(highest);
 //console.log(index);
+
+let largest = 0;  // Start with a very small number
+
+for (const subarr of finances) {
+  const num = subarr[2];  // Access the element at index 2
+  if (num > largest) {
+    largest = num;
+  }
+}
+
+console.log(largest);  // Outputs 9
+
+let largestMonth = finances['largest'];
+
+console.log("largest month: "+ largestMonth);

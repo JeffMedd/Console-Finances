@@ -98,6 +98,8 @@ const changes = [];
 //console.log(changes[4]);
 //console.table(changes);
 
+
+
 const combined = finances.concat(changes);
 console.log("combined array:"); 
 console.table(combined);
