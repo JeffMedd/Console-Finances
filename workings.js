@@ -100,7 +100,7 @@ var finances = [
     );
 
 console.table(finances);
-console.log(finances[2]);
+console.log(finances[85][2]);
  console.log("highest: " + Math.max(finances[2]));
 
 //console.log("Greatest Increase in Profits: "+"$"+ Math.max(...finances[1][2]));
@@ -124,3 +124,21 @@ console.log(largest);  // Outputs 9
 let largestMonth = finances['largest'];
 
 console.log("largest month: "+ largestMonth);
+console.log(finances);
+
+
+var largestValue = 0; // initialize the largest value to the smallest possible number
+for (var i = 0; i < finances.length; i++) {
+  var value = finances[i][1]; // get the value at the second column index for the current row
+  if (value > largestValue) { // if the current value is larger than the current largest value
+    largestValue = value; // update the largest value
+  }
+}
+
+// Now the variable "largestValue" holds the largest value in the second column index of the finances array
+
+for (var i = 0; i < finances.length; i++) {
+    if (finances[i][1] === largestValue) {
+      console.log(finances[i][0]); // this will log the row with the largest value in the second column index
+    }
+  }
